@@ -13,7 +13,7 @@
     "PatchworkMC"
   ],
   "depends": {
-    "patchwork-api-base": "*"
+    "fabricloader": ">=0.8.4"
   },
   "description": "Implementation of the Forge World Type API.",
   "mixins": [

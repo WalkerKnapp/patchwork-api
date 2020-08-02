@@ -15,10 +15,9 @@
     "PatchworkMC"
   ],
   "depends": {
-    "patchwork-api-base": "*",
+    "fabricloader": ">=0.8.4",
     "patchwork-fml": "*",
     "patchwork-capabilities": "*",
-    "patchwork-events-input": "*",
     "patchwork-events-lifecycle": "*",
     "patchwork-events-rendering": "*",
     "patchwork-loot": "*"

@@ -19,6 +19,8 @@
 
 package net.patchworkmc.mixin.event.input;
 
+import net.minecraftforge.client.event.InputEvent;
+import net.minecraftforge.common.MinecraftForge;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -28,17 +30,15 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import net.minecraft.client.Keyboard;
 import net.minecraft.client.MinecraftClient;
 
-import net.patchworkmc.impl.event.input.InputEvents;
-
 @Mixin(Keyboard.class)
 public abstract class MixinKeyboard {
 	@Shadow
 	MinecraftClient client;
 
 	@Inject(method = "onKey", at = @At("RETURN"))
-	private void fireKeyInput(long window, int key, int scancode, int action, int modifiers, CallbackInfo info) {
+	private void fireKeyInput(long window, int key, int scancode, int i, int j, CallbackInfo info) {
 		if (window == this.client.window.getHandle()) {
-			InputEvents.fireKeyInput(key, scancode, action, modifiers);
+			MinecraftForge.EVENT_BUS.post(new InputEvent.KeyInputEvent(key, scancode, i, j));
 		}
 	}
 }

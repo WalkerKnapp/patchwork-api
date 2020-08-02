@@ -19,7 +19,6 @@
 
 package net.patchworkmc.mixin.registries;
 
-import net.minecraftforge.registries.IForgeRegistryEntry;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 
@@ -31,15 +30,15 @@ import net.patchworkmc.impl.registries.ExtendedForgeRegistryEntry;
 import net.patchworkmc.impl.registries.Identifiers;
 
 @Mixin(SensorType.class)
-public class MixinSensorType implements ExtendedForgeRegistryEntry {
+public class MixinSensorType implements ExtendedForgeRegistryEntry<SensorType> {
 	@Unique
 	private Identifier registryName;
 
 	@Override
-	public IForgeRegistryEntry setRegistryName(Identifier name) {
+	public SensorType setRegistryName(Identifier name) {
 		this.registryName = name;
 
-		return this;
+		return (SensorType) (Object) this;
 	}
 
 	public Identifier getRegistryName() {

@@ -30,6 +30,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
+import org.spongepowered.asm.mixin.Unique;
 
 import net.minecraft.loot.LootManager;
 import net.minecraft.loot.LootTable;
@@ -40,8 +41,8 @@ import net.patchworkmc.impl.event.loot.LootEvents;
 
 // NOTE: this class is more or less a direct copy of parts of Forge's ForgeHooks.
 public class LootHooks {
-	// Made public for Patchwork's own use
-	public static ThreadLocal<Deque<LootTableContext>> lootContext = new ThreadLocal<Deque<LootTableContext>>();
+	@Unique
+	private static ThreadLocal<Deque<LootTableContext>> lootContext = new ThreadLocal<Deque<LootTableContext>>();
 
 	public static LootTable loadLootTable(Gson gson, Identifier name, JsonElement data, boolean custom, LootManager lootTableManager) {
 		Deque<LootTableContext> que = lootContext.get();
@@ -104,8 +105,7 @@ public class LootHooks {
 		return ctx.poolCount == 1 ? "main" : "pool" + (ctx.poolCount - 1);
 	}
 
-	// Made public for Patchwork's own use
-	public static class LootTableContext {
+	private static class LootTableContext {
 		public final Identifier name;
 		public final boolean custom;
 		private final boolean vanilla;
@@ -113,7 +113,7 @@ public class LootHooks {
 		public int entryCount = 0;
 		private HashSet<String> entryNames = Sets.newHashSet();
 
-		protected LootTableContext(Identifier name, boolean custom) {
+		private LootTableContext(Identifier name, boolean custom) {
 			this.name = name;
 			this.custom = custom;
 			this.vanilla = "minecraft".equals(this.name.getNamespace());

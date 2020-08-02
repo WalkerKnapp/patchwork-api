@@ -13,7 +13,8 @@
     "PatchworkMC"
   ],
   "depends": {
-    "patchwork-api-base": "*",
+    "fabricloader": ">=0.8.4",
+    "fabric-networking-v0": "*",
     "patchwork-fml": "*"
   },
   "mixins": [
