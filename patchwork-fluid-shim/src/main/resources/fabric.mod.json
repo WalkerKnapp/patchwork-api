@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "patchwork-fluid-shim",
+  "name": "Patchwork Fluid Shim",
+  "version": "${version}",
+  "license": "LGPL-2.1-only",
+  "icon": "assets/patchwork-fluid-shim/icon.png",
+  "contact": {
+    "issues": "https://github.com/PatchworkMC/patchwork-api/issues",
+    "sources": "https://github.com/PatchworkMC/patchwork-api"
+  },
+  "authors": [
+    "PatchworkMC"
+  ],
+  "depends": {
+    "patchwork-api-base": "*"
+  },
+  "description": "A Shim for the Forge Fluid API.",
+  "custom": {
+    "modmenu:api": true,
+    "modmenu:parent": "patchwork"
+  }
+}
