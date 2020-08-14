@@ -2,5 +2,5 @@ archivesBaseName = "patchwork-fluid-shim"
 version = getSubprojectVersion(project, "0.3.0")
 
 dependencies {
-	implementation project(path: ':patchwork-fluid-shim', configuration: 'dev')
+	implementation project(path: ':patchwork-api-base', configuration: 'dev')
 }
