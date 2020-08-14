@@ -41,10 +41,11 @@ import net.patchworkmc.impl.capability.PatchworkGetCapability;
 @Mixin(AbstractFurnaceBlockEntity.class)
 public class MixinAbstractFurnaceBlockEntity extends BlockEntity implements PatchworkGetCapability {
 	@Unique
-	private LazyOptional<? extends IItemHandler>[] itemHandlers = SidedInvWrapper.create((SidedInventory) this, Direction.UP, Direction.DOWN, Direction.NORTH);
+	private final LazyOptional<? extends IItemHandler>[] itemHandlers;
 
 	public MixinAbstractFurnaceBlockEntity(BlockEntityType<?> type) {
 		super(type);
+		this.itemHandlers = SidedInvWrapper.create((SidedInventory) this, Direction.UP, Direction.DOWN, Direction.NORTH);
 	}
 
 	@Override
