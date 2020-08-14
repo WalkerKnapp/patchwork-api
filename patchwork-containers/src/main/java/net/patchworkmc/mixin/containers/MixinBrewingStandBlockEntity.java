@@ -41,10 +41,11 @@ import net.patchworkmc.impl.capability.PatchworkGetCapability;
 @Mixin(BrewingStandBlockEntity.class)
 public class MixinBrewingStandBlockEntity extends BlockEntity implements PatchworkGetCapability {
 	@Unique
-	private LazyOptional<? extends IItemHandler>[] itemHandlers = SidedInvWrapper.create((SidedInventory) this, Direction.UP, Direction.DOWN, Direction.NORTH);
+	private final LazyOptional<? extends IItemHandler>[] itemHandlers;
 
 	public MixinBrewingStandBlockEntity(BlockEntityType<?> type) {
 		super(type);
+		this.itemHandlers = SidedInvWrapper.create((SidedInventory) this, Direction.UP, Direction.DOWN, Direction.NORTH);
 	}
 
 	@Override
