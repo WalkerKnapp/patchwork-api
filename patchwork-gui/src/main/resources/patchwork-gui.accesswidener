@@ -1,0 +1,3 @@
+accessWidener v1 named
+
+accessible  method  net/minecraft/client/gui/screen/Screens register    (Lnet/minecraft/container/ContainerType;Lnet/minecraft/client/gui/screen/Screens$Provider;)V

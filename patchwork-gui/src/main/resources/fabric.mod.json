@@ -18,6 +18,7 @@
   "mixins": [
     "patchwork-gui.mixins.json"
   ],
+  "accessWidener": "patchwork-gui.accesswidener",
   "description": "Implementation of the Forge GUI Hooks.",
   "custom": {
     "modmenu:api": true,
