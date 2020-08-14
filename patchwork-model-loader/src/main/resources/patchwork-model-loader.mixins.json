@@ -3,8 +3,14 @@
   "package": "net.patchworkmc.mixin.modelloader",
   "compatibilityLevel": "JAVA_8",
   "client": [
+    "MixinBakedModel",
     "MixinBakedModelManager",
-    "MixinModelLoader"
+    "MixinItemModelGenerator",
+    "MixinJsonUnbakedModel",
+    "MixinModelItemPropertyOverrideList",
+    "MixinModelLoader",
+    "MixinUnbakedModel",
+    "MixinWeightedUnbakedModel"
   ],
   "injectors": {
     "defaultRequire": 1
